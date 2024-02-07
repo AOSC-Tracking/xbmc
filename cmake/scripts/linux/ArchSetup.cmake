@@ -47,7 +47,7 @@ else()
     set(ARCH loongarch64)
     set(NEON False)
   else()
-    message(SEND_ERROR "Unknown CPU: ${CPU}")
+    set(NEON False)
   endif()
 endif()
 
