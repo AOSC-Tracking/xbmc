@@ -14,7 +14,6 @@ macro(buildCrossGUID)
   SETUP_BUILD_VARS()
 
   set(CROSSGUID_VERSION ${${MODULE}_VER})
-  set(CROSSGUID_DEBUG_POSTFIX "-dgb")
 
   set(_crossguid_definitions HAVE_NEW_CROSSGUID)
 
@@ -53,10 +52,6 @@ if(NOT TARGET CrossGUID::CrossGUID)
                                            HINTS ${DEPENDS_PATH}/lib ${PC_CROSSGUID_LIBDIR}
                                            ${${CORE_PLATFORM_LC}_SEARCH_CONFIG}
                                            NO_CACHE)
-    find_library(CROSSGUID_LIBRARY_DEBUG NAMES crossguidd crossguid-dgb
-                                         HINTS ${DEPENDS_PATH}/lib ${PC_CROSSGUID_LIBDIR}
-                                         ${${CORE_PLATFORM_LC}_SEARCH_CONFIG}
-                                         NO_CACHE)
 
     # NEW_CROSSGUID >= 0.2.0 release
     if(EXISTS "${CROSSGUID_INCLUDE_DIR}/crossguid/guid.hpp")
